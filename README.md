@@ -1,4 +1,7 @@
 # LarryShell
+
+![LarryShell](logo.png "LarryShell")
+
 LarryShell is a variation of `bash` which makes it behave more like Larry.
 
 ## What does LarryShell do?
