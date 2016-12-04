@@ -1,0 +1,28 @@
+#
+# config file for LarryShell
+#
+
+export PS1="LarryShell \w > "
+
+command_not_found_handle()
+{
+	errormsg="$(sort -R errors.txt | head -n 1)"
+	printf "$errormsg\n"
+	return 127
+}
+
+PROMPT_COMMAND=__prompt_command
+
+__prompt_command() 
+{
+    local EXIT="$?"  
+
+    PS1="LarryShell "
+
+    if [ $EXIT != 0 ]; then
+        PS1+="(Poor!)"
+    else
+        PS1+="(Rich!)"
+    fi
+	PS1+=" \w > "
+}
