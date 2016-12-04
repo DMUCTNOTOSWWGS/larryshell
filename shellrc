@@ -2,7 +2,8 @@
 # config file for LarryShell
 #
 
-export PS1="LarryShell \w > "
+export PS1="\e[32m$\e[39m\e[36mLarryShell\e[39m\e[32m$\e[39m \w > "
+alias ls='ls --color=auto'
 
 command_not_found_handle()
 {
@@ -17,12 +18,12 @@ __prompt_command()
 {
     local EXIT="$?"  
 
-    PS1="LarryShell "
+    PS1="\e[32m$\e[39m\e[36mLarryShell\e[39m\e[32m$\e[39m "
 
     if [ $EXIT != 0 ]; then
-        PS1+="(Poor!)"
+        PS1+="\e[31m(Poor!)\e[39m"
     else
-        PS1+="(Rich!)"
+        PS1+="\e[32m(Rich!)\e[39m"
     fi
 	PS1+=" \w > "
 }
