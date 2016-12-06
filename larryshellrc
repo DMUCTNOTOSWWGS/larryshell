@@ -10,7 +10,7 @@ if [ -f $HOME/.larryrc ]; then . $HOME/.larryrc; fi
 
 command_not_found_handle()
 {
-	errormsg="$(sort -R $SCRIPTPATH/errors.txt | head -n 1)"
+	errormsg="$(sort -R $SCRIPTPATH/larryshell-errors.txt | head -n 1)"
 	printf "$errormsg\n"
 	return 127
 }
