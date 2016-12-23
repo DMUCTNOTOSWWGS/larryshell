@@ -30,15 +30,9 @@ __prompt_command()
     if [ $EXIT != 0 ]; then
         PS1+="\e[31m(Poor!)\e[39m"
 		((SCORE_DEVON++))
-		#if [ $EXIT -ne $PREV ]; then
-		#	((SCORE_DEVON++))
-		#fi
     else
         PS1+="\e[32m(Rich!)\e[39m"
 		((SCORE_LARRY++))
-		#if [ $EXIT -ne $PREV ]; then
-		#	((SCORE_LARRY++))
-		#fi
     fi
 	PS1+=" \w > "
 	PREV=$EXIT
