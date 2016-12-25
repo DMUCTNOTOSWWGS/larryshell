@@ -1,6 +1,7 @@
 #!/bin/bash
 
 SCRIPTPATH="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+VERSION="v1.2"
 
 #if [ $1 == "--lurry" ]; then
 #	
@@ -8,6 +9,13 @@ SCRIPTPATH="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 
 if [ "$1" = "--lurry" ] || [ "$1" = "-l" ]; then
 	LARRY="Lurry" bash --init-file $SCRIPTPATH/larryshellrc
+elif [ "$1" = "--help" ] || [ "$1" = "-h" ]; then
+	echo -e "\nLarryShell ${VERSION}\n"
+	echo -e "Made by the Devon Austin Wood-Thomas Github Organization\n"
+	echo -e "\$\$\$\$\$\$\$\$\$\$\$\$\$\$\$\$\$\$\$\$\$\n"
+	echo -e "--help, -h\n\tShow this dialog."
+	echo -e "--lurry, -l\n\tEnable Lurry mode."
+	echo -e ""
 else
 	bash --init-file $SCRIPTPATH/larryshellrc
 fi
