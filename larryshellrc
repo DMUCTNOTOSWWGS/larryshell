@@ -44,6 +44,6 @@ __prompt_command()
 function scoreboard()
 {
 	# for keeping score of the age old Larry vs Devon altercation
-	echo -e "Scoreboard:\n\n${LARRY}: $SCORE_LARRY\nDevon: $SCORE_DEVON\n";
+	echo -e "\nScoreboard:\n\n${LARRY}: $SCORE_LARRY\nDevon: $SCORE_DEVON\n";
 }
 export -f scoreboard
