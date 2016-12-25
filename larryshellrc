@@ -1,8 +1,11 @@
 #
 # config file for LarryShell
 #
+if [ -z "$LARRY" ]; then
+	LARRY="Larry"
+fi
 
-export PS1="\e[32m$\e[39m\e[36mLarryShell\e[39m\e[32m$\e[39m \w > "
+export PS1="\e[32m$\e[39m\e[36m${LARRY}Shell\e[39m\e[32m$\e[39m \w > "
 alias ls='ls --color=auto'
 SCRIPTPATH="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 
@@ -25,7 +28,7 @@ __prompt_command()
 {
     local EXIT="$?"  
 
-    PS1="\e[32m$\e[39m\e[36mLarryShell\e[39m\e[32m$\e[39m "
+    PS1="\e[32m$\e[39m\e[36m${LARRY}Shell\e[39m\e[32m$\e[39m "
 
     if [ $EXIT != 0 ]; then
         PS1+="\e[31m(Poor!)\e[39m"
@@ -41,6 +44,6 @@ __prompt_command()
 function scoreboard()
 {
 	# for keeping score of the age old Larry vs Devon altercation
-	echo -e "Scoreboard:\n\nLarry: $SCORE_LARRY\nDevon: $SCORE_DEVON\n";
+	echo -e "Scoreboard:\n\n${LARRY}: $SCORE_LARRY\nDevon: $SCORE_DEVON\n";
 }
 export -f scoreboard

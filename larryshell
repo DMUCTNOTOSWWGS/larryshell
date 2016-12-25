@@ -2,4 +2,12 @@
 
 SCRIPTPATH="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 
-bash --init-file $SCRIPTPATH/larryshellrc
+#if [ $1 == "--lurry" ]; then
+#	
+#fi
+
+if [ "$1" = "--lurry" ]; then
+	LARRY="Lurry" bash --init-file $SCRIPTPATH/larryshellrc
+else
+	bash --init-file $SCRIPTPATH/larryshellrc
+fi
