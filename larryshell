@@ -3,10 +3,6 @@
 SCRIPTPATH="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 VERSION="v1.2"
 
-#if [ $1 == "--lurry" ]; then
-#	
-#fi
-
 if [ "$1" = "--lurry" ] || [ "$1" = "-l" ]; then
 	LARRY="Lurry" bash --init-file $SCRIPTPATH/larryshellrc
 elif [ "$1" = "--help" ] || [ "$1" = "-h" ]; then
