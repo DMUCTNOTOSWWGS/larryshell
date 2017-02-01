@@ -10,7 +10,7 @@ alias ls='ls --color=auto'
 
 if [ -d /etc/larryshell ]
 then
-    CONFIGPATH = "/etc/larryshell"
+    CONFIGPATH="/etc/larryshell"
 else
     CONFIGPATH="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 fi
