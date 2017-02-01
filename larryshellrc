@@ -46,6 +46,7 @@ function scoreboard()
 	# for keeping score of the age old Larry vs Devon altercation
 	echo -e "\nScoreboard:\n\n${LARRY}: $SCORE_LARRY\nDevon: $SCORE_DEVON\n";
 }
+export -f scoreboard
 
 function rich()
 {
@@ -57,4 +58,4 @@ function rich()
 		echo "Your terminal isn't rich enough for larry ascii art"
 	fi
 }
-export -f scoreboard
+export -f rich
