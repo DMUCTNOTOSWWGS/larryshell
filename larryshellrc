@@ -67,3 +67,14 @@ function yours()
 	echo -e "Yours?  Did you mean \"ours\"?"
 }
 export -f yours
+
+function xd()
+{
+	echo -n "x"
+	while true
+	do
+		echo -n "d"
+		sleep 0.025
+	done
+}
+export -f xd
