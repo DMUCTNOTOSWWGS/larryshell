@@ -48,6 +48,7 @@ function scoreboard()
 }
 export -f scoreboard
 
+
 function rich()
 {
 	# print ascii
@@ -59,3 +60,9 @@ function rich()
 	fi
 }
 export -f rich
+
+function yours()
+{
+	echo -e "Yours?  Did you mean \"ours\"?"
+}
+export -f yours
