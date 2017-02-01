@@ -1,0 +1,60 @@
+#
+# config file for LarryShell
+#
+if [ -z "$LARRY" ]; then
+	LARRY="Larry"
+fi
+
+export PS1="\e[32m$\e[39m\e[36m${LARRY}Shell\e[39m\e[32m$\e[39m \w > "
+alias ls='ls --color=auto'
+SCRIPTPATH="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+
+SCORE_LARRY=0
+SCORE_DEVON=0
+PREV=0
+
+if [ -f $HOME/.larryrc ]; then . $HOME/.larryrc; fi
+
+command_not_found_handle()
+{
+	errormsg="$(sort -R $SCRIPTPATH/larryshell-errors.txt | head -n 1)"
+	printf "$errormsg\n"
+	return 127
+}
+
+PROMPT_COMMAND=__prompt_command
+
+__prompt_command()
+{
+    local EXIT="$?"
+
+    PS1="\e[32m$\e[39m\e[36m${LARRY}Shell\e[39m\e[32m$\e[39m "
+
+    if [ $EXIT != 0 ]; then
+        PS1+="\e[31m(Poor!)\e[39m"
+		((SCORE_DEVON++))
+    else
+        PS1+="\e[32m(Rich!)\e[39m"
+		((SCORE_LARRY++))
+    fi
+	PS1+=" \w > "
+	PREV=$EXIT
+}
+
+function scoreboard()
+{
+	# for keeping score of the age old Larry vs Devon altercation
+	echo -e "\nScoreboard:\n\n${LARRY}: $SCORE_LARRY\nDevon: $SCORE_DEVON\n";
+}
+
+function rich()
+{
+	# print ascii
+	if [ $(tput colors) -ge 256 ];
+	then
+		cat $SCRIPTPATH/larryascii
+	else
+		echo "Your terminal isn't rich enough for larry ascii art"
+	fi
+}
+export -f scoreboard
