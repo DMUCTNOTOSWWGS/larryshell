@@ -54,6 +54,7 @@ function rich()
 	# print ascii
 	if [ $(tput colors) -ge 256 ];
 	then
+		clear
 		cat $SCRIPTPATH/larryascii
 	else
 		echo "Your terminal isn't rich enough for larry ascii art"
