@@ -47,3 +47,8 @@ function scoreboard()
 	echo -e "\nScoreboard:\n\n${LARRY}: $SCORE_LARRY\nDevon: $SCORE_DEVON\n";
 }
 export -f scoreboard
+
+function yours()
+{
+	echo -e "Yours?  Did you mean \"ours\"?"
+}
