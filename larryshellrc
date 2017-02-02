@@ -65,12 +65,12 @@ export -f scoreboard
 function rich()
 {
 	# print ascii
-	if [ $(tput colors) -ge 256 ];
+	if [ "$1" = "--force" ] || [ "$1" = "-f" ] || [ $(tput colors) -ge 256 ]; # force flag for alex
 	then
 		clear
 		cat $RESOURCEPATH/larryascii
 	else
-		echo "Your terminal isn't rich enough for larry ascii art"
+		echo -e "Your terminal isn't rich enough for larry ascii art\nUse the --force flag to force print"
 	fi
 }
 export -f rich
@@ -80,3 +80,14 @@ function yours()
 	echo -e "Yours?  Did you mean \"ours\"?"
 }
 export -f yours
+
+function xd()
+{
+	echo -n "x"
+	while true
+	do
+		echo -n "d"
+		sleep 0.025
+	done
+}
+export -f xd
