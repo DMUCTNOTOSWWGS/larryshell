@@ -52,12 +52,17 @@ export -f scoreboard
 function rich()
 {
 	# print ascii
-	if [ $(tput colors) -ge 256 ];
+	if [ "$1" = "--force" ] || [ "$1" = "-f" ] || [ $(tput colors) -ge 256 ]; # force flag for alex
 	then
 		clear
 		cat $SCRIPTPATH/larryascii
 	else
 		echo "Your terminal isn't rich enough for larry ascii art"
+		read -rp "Force print anyway? [y/N] " PRINTSTATUS # force for alex
+		if [[ "$PRINTSTATUS" =~ ^([yY][eE][sS]|[yY])+$ ]]; then
+			clear
+			cat $SCRIPTPATH/larryascii
+		fi
 	fi
 }
 export -f rich
