@@ -7,7 +7,20 @@ fi
 
 export PS1="\e[32m$\e[39m\e[36m${LARRY}Shell\e[39m\e[32m$\e[39m \w > "
 alias ls='ls --color=auto'
-SCRIPTPATH="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+
+if [ -d /etc/larryshell ]
+then
+    CONFIGPATH="/etc/larryshell"
+else
+    CONFIGPATH="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+fi
+
+if [ -d /usr/share/larryshell ]
+then
+    RESOURCEPATH="/usr/share/larryshell"
+else
+    RESOURCEPATH=$CONFIGPATH
+fi
 
 SCORE_LARRY=0
 SCORE_DEVON=0
@@ -17,7 +30,7 @@ if [ -f $HOME/.larryrc ]; then . $HOME/.larryrc; fi
 
 command_not_found_handle()
 {
-	errormsg="$(sort -R $SCRIPTPATH/larryshell-errors.txt | head -n 1)"
+	errormsg="$(sort -R $RESOURCEPATH/larryshell-errors.txt | head -n 1)"
 	printf "$errormsg\n"
 	return 127
 }
@@ -55,7 +68,7 @@ function rich()
 	if [ "$1" = "--force" ] || [ "$1" = "-f" ] || [ $(tput colors) -ge 256 ]; # force flag for alex
 	then
 		clear
-		cat $SCRIPTPATH/larryascii
+		cat $RESOURCEPATH/larryascii
 	else
 		echo "Your terminal isn't rich enough for larry ascii art"
 		read -rp "Force print anyway? [y/N] " PRINTSTATUS # force for alex
