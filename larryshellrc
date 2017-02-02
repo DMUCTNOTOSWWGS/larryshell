@@ -70,12 +70,7 @@ function rich()
 		clear
 		cat $RESOURCEPATH/larryascii
 	else
-		echo "Your terminal isn't rich enough for larry ascii art"
-		read -rp "Force print anyway? [y/N] " PRINTSTATUS # force for alex
-		if [[ "$PRINTSTATUS" =~ ^([yY][eE][sS]|[yY])+$ ]]; then
-			clear
-			cat $RESOURCEPATH/larryascii
-		fi
+		echo -e "Your terminal isn't rich enough for larry ascii art\nUse the --force flag to force print"
 	fi
 }
 export -f rich
