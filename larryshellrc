@@ -74,7 +74,7 @@ function rich()
 		read -rp "Force print anyway? [y/N] " PRINTSTATUS # force for alex
 		if [[ "$PRINTSTATUS" =~ ^([yY][eE][sS]|[yY])+$ ]]; then
 			clear
-			cat $SCRIPTPATH/larryascii
+			cat $RESOURCEPATH/larryascii
 		fi
 	fi
 }
