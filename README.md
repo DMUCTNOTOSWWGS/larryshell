@@ -6,7 +6,7 @@ LarryShell is a variation of `bash` which makes it behave more like Larry.
 
 ## What does LarryShell do?
 
-LarryShell modifies `bash` to create a more affluent command-line interface, complete with a response telling you whether or not you are rich or poor depending on whether or not the previous command you ran was successful.  LarryShell also sasses you and calls you bad if your command does not run successfully.  **New Feature:** LarryShell now keeps score, just like the real Larry.  Typing a correct command earns our hero and protagonist Larry one point, while an incorrect command yields a point to Devon on top of the sass you will receive.
+LarryShell modifies `bash` to create a more affluent command-line interface, complete with a response telling you whether or not you are rich or poor depending on whether or not the previous command you ran was successful.  LarryShell also sasses you and calls you bad if your command does not run successfully.  The complete changelogs can be found in the release history.
 
 ## Running LarryShell
 ### From source
