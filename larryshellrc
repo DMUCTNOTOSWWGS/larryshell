@@ -94,5 +94,5 @@ export -f xd
 
 function larrysay()
 {
-	cowsay -f $RESOURCEPATH/larry.cow "$1"
+	cowsay -f $RESOURCEPATH/larry.cow "$@"
 }
